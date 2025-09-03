@@ -1,0 +1,54 @@
+const accounts = {
+  "Tài sản": [
+    "111 - Tiền mặt",
+    "112 - Tiền gửi NH",
+    "131 - Phải thu KH",
+    "152 - Nguyên liệu",
+    "156 - Hàng hóa",
+    "211 - TSCĐ hữu hình"
+  ],
+  "Nợ phải trả": [
+    "311 - Vay ngắn hạn",
+    "331 - Phải trả người bán",
+    "333 - Thuế và các khoản phải nộp",
+    "341 - Vay dài hạn"
+  ],
+  "Vốn chủ sở hữu": [
+    "411 - Vốn góp",
+    "421 - Lợi nhuận chưa phân phối"
+  ],
+  "Doanh thu": [
+    "511 - Doanh thu bán hàng",
+    "515 - Doanh thu tài chính"
+  ],
+  "Chi phí": [
+    "611 - Chi phí SXKD",
+    "635 - Chi phí tài chính",
+    "642 - Chi phí QLDN"
+  ]
+};
+
+const container = document.getElementById("mindmap");
+for (let [group, items] of Object.entries(accounts)) {
+  const col = document.createElement("div");
+  col.style.margin = "10px";
+  col.style.padding = "10px";
+  col.style.border = "1px solid #ccc";
+  col.style.borderRadius = "8px";
+  col.style.display = "inline-block";
+  col.style.verticalAlign = "top";
+
+  const title = document.createElement("h2");
+  title.textContent = group;
+  col.appendChild(title);
+
+  const list = document.createElement("ul");
+  items.forEach(acc => {
+    const li = document.createElement("li");
+    li.textContent = acc;
+    list.appendChild(li);
+  });
+  col.appendChild(list);
+
+  container.appendChild(col);
+}
